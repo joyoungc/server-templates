@@ -26,9 +26,9 @@ public class EchoServer extends AbstractVerticle {
 		vertx.createNetServer().connectHandler(sock -> {
 			Pump.pump(sock, sock).start();
 			// Create a pump
-			sock.handler(buffer -> {
-				System.out.println("I received some bytes: " + buffer.toString());
-			});
+//			sock.handler(buffer -> {
+//				System.out.println("I received some bytes: " + buffer.toString());
+//			});
 
 		}).listen(Props.VERTX_PORT.getIntValue());
 
