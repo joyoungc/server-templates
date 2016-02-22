@@ -22,9 +22,10 @@ public final class EchoServer {
 		try {
 			
 			ServerBootstrap b = new ServerBootstrap();
-			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class);
-			.option(ChannelOption.SO_BACKLOG, 100) // 서버가 동시에 100개의 연결 요청을 수용하도록 설정
-			b.handler(new LoggingHandler(LogLevel.INFO));
+			b.group(bossGroup, workerGroup)
+			 .channel(NioServerSocketChannel.class)
+			 .option(ChannelOption.SO_BACKLOG, 100) // 서버가 동시에 100개의 연결 요청을 수용하도록 설정
+			 .handler(new LoggingHandler(LogLevel.INFO));
 			b.childHandler(new ChannelInitializer<SocketChannel>() {
 				@Override
 				public void initChannel(SocketChannel ch) throws Exception {
